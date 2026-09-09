@@ -1,6 +1,6 @@
 # colaboradores
 
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow) ![Linguagem](https://img.shields.io/badge/language-Java-blue) ![Build](https://img.shields.io/badge/build-%3F-lightgrey)
+[![Build](https://github.com/pcfurlanetto/colaboradores/actions/workflows/ci.yml/badge.svg)](https://github.com/pcfurlanetto/colaboradores/actions/workflows/ci.yml) [![Coverage](https://codecov.io/gh/pcfurlanetto/colaboradores/branch/main/graph/badge.svg)](https://codecov.io/gh/pcfurlanetto/colaboradores) [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 Descrição
 ---------
@@ -17,14 +17,14 @@ Recursos
 
 Tecnologias
 -----------
-- Java 11+ (ou versão definida no projeto)
-- Maven ou Gradle (especifique qual você usa)
+- Java 11+
+- Maven
 - (Opcional) Spring Boot, JPA/Hibernate, H2/Postgres, JUnit, Mockito
 
 Pré-requisitos
 --------------
 - JDK 11 ou superior
-- Maven 3.6+ ou Gradle 6+
+- Maven 3.6+
 - (Opcional) Docker para bancos externos
 
 Como rodar (Maven)
@@ -37,18 +37,6 @@ mvn clean package
 2. Rodar (jar gerado):
 ```bash
 java -jar target/colaboradores-<versao>.jar
-```
-
-Como rodar (Gradle)
--------------------
-1. Build:
-```bash
-./gradlew clean build
-```
-
-2. Rodar (jar gerado):
-```bash
-java -jar build/libs/colaboradores-<versao>.jar
 ```
 
 Configuração
@@ -102,10 +90,6 @@ Testes
 ```bash
 mvn test
 ```
-- Executar testes com Gradle:
-```bash
-./gradlew test
-```
 
 Boas práticas e contribuições
 ----------------------------
@@ -123,17 +107,16 @@ Modelo de commit
 
 Licença
 -------
-Escolha a licença desejada (ex.: MIT, Apache-2.0). Atualmente este repositório está sem licença definida.
+Este repositório está licenciado sob a MIT License — veja o arquivo LICENSE para detalhes.
 
 Contato
 -------
-- Autor: pcfurlanetto
-- E-mail: (adicione aqui)
-- Twitter/GitHub: https://github.com/pcfurlanetto
+- Autor: Paulo César Furlanetto Marques
+- E-mail: paulo.furlanetto@ulife.com.br
+- GitHub: https://github.com/pcfurlanetto
 
 Próximos passos sugeridos
 -------------------------
-- Definir framework (por exemplo Spring Boot) e dependências no pom.xml / build.gradle
 - Adicionar um exemplo funcional com banco em memória (H2) e testes de integração
-- Escolher e adicionar licença
-- Adicionar badges reais de CI (GitHub Actions) e cobertura de testes
+- Adicionar badges adicionais (ex.: cobertura por branch) e configurar Codecov
+- Ajustar o README com detalhes do framework (Spring Boot) se você decidir adotá-lo
