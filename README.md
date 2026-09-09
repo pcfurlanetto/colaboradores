@@ -1,6 +1,6 @@
 # colaboradores
 
-[![Build](https://github.com/pcfurlanetto/colaboradores/actions/workflows/ci.yml/badge.svg)](https://github.com/pcfurlanetto/colaboradores/actions/workflows/ci.yml) [![Coverage](https://codecov.io/gh/pcfurlanetto/colaboradores/branch/main/graph/badge.svg)](https://codecov.io/gh/pcfurlanetto/colaboradores) [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Coverage](https://codecov.io/gh/pcfurlanetto/colaboradores/branch/main/graph/badge.svg)](https://codecov.io/gh/pcfurlanetto/colaboradores) [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 Descrição
 ---------
@@ -115,8 +115,3 @@ Contato
 - E-mail: paulo.furlanetto@ulife.com.br
 - GitHub: https://github.com/pcfurlanetto
 
-Próximos passos sugeridos
--------------------------
-- Adicionar um exemplo funcional com banco em memória (H2) e testes de integração
-- Adicionar badges adicionais (ex.: cobertura por branch) e configurar Codecov
-- Ajustar o README com detalhes do framework (Spring Boot) se você decidir adotá-lo
