@@ -1,233 +1,139 @@
-# Sistema de Gestão de Colaboradores
+# colaboradores
 
-Projeto desenvolvido em Java com o objetivo de demonstrar os principais conceitos de Programação Orientada a Objetos (POO), incluindo:
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow) ![Linguagem](https://img.shields.io/badge/language-Java-blue) ![Build](https://img.shields.io/badge/build-%3F-lightgrey)
 
-- Herança
-- Polimorfismo
-- Encapsulamento
-- Sobrescrita de métodos (Override)
-- Coleções (ArrayList)
-- Validação de entrada de dados
-- Geração de folha de pagamento
+Descrição
+---------
+"colaboradores" é um projeto Java que visa facilitar o gerenciamento de colaboradores (funcionários/usuários) em aplicações empresariais. Ele fornece modelos, serviços e utilitários para criação, leitura, atualização e remoção (CRUD) de colaboradores, além de exemplos de integração com persistência e APIs REST.
 
-## Estrutura do Projeto
+Recursos
+--------
+- Modelos e DTOs para colaboradores
+- Serviços com validação e regras de negócio
+- Repositório de exemplo (JPA) e adaptadores para persistência
+- Endpoints REST de exemplo (controladores)
+- Suporte para testes unitários e de integração
+- Estrutura modular e fácil de estender
 
-```
-.
-├── Principal.java
-├── colaborador.java
-├── ColaboradorPadrao.java
-├── ColaboradorComissionado.java
-└── ColaboradorProducao.java
-```
+Tecnologias
+-----------
+- Java 11+ (ou versão definida no projeto)
+- Maven ou Gradle (especifique qual você usa)
+- (Opcional) Spring Boot, JPA/Hibernate, H2/Postgres, JUnit, Mockito
 
-## Classes
+Pré-requisitos
+--------------
+- JDK 11 ou superior
+- Maven 3.6+ ou Gradle 6+
+- (Opcional) Docker para bancos externos
 
-### colaborador
-
-Classe base do sistema.
-
-#### Atributos
-
-- matricula
-- nome
-- salarioBase
-
-#### Métodos
-
-- calcularSalarioFinal()
-- exibirDados()
-- getMatricula()
-- getNome()
-
-Todas as demais classes herdam desta classe. 【1-60a664】
-
----
-
-### ColaboradorPadrao
-
-Representa um colaborador sem benefícios adicionais.
-
-#### Regra salarial
-
-```
-Salário Final = Salário Base
-```
-
-【2-d10952】
-
----
-
-### ColaboradorComissionado
-
-Representa colaboradores que recebem comissão sobre vendas.
-
-#### Atributos adicionais
-
-- valorVendas
-- percentualComissao
-
-#### Regra salarial
-
-```
-Comissão = valorVendas × percentualComissao / 100
-
-Salário Final = Salário Base + Comissão
-```
-
-【3-e5593f】
-
----
-
-### ColaboradorProducao
-
-Representa colaboradores remunerados por produtividade.
-
-#### Atributos adicionais
-
-- quantidadePecas
-- valorPorPeca
-
-#### Regra salarial
-
-```
-Produtividade = quantidadePecas × valorPorPeca
-
-Salário Final = Salário Base + Produtividade
-```
-
-【4-94253f】
-
----
-
-### Principal
-
-Classe responsável pela execução do programa e interação com o usuário através de um menu no terminal. 【5-973748】
-
-#### Funcionalidades
-
-- Cadastro de Colaborador Padrão
-- Cadastro de Colaborador Comissionado
-- Cadastro de Colaborador de Produção
-- Geração da folha de pagamento
-- Exibição do resumo da folha
-- Listagem de colaboradores cadastrados
-- Controle por menu interativo
-
-【5-973748】
-
----
-
-## Menu do Sistema
-
-```text
-1 - Cadastrar Colaborador Padrao
-2 - Cadastrar Colaborador Comissionado
-3 - Cadastrar Colaborador Producao
-4 - Gerar folha de pagamento
-5 - Exibir resumo da folha de pagamento
-6 - Lista cadastro
-0 - Sair
-```
-
-【5-973748】
-
----
-
-## Diagrama Simplificado
-
-```text
-                    colaborador
-                         │
-        ┌────────────────┼────────────────┐
-        │                │                │
-        ▼                ▼                ▼
-
-ColaboradorPadrao  ColaboradorComissionado  ColaboradorProducao
-                         │                        │
-                         │                        │
-                  valorVendas            quantidadePecas
-                  percentualComissao     valorPorPeca
-```
-
----
-
-## Exemplo de Utilização
-
-### Cadastro de colaborador padrão
-
-```java
-new ColaboradorPadrao(
-    1,
-    "João",
-    3000.00
-);
-```
-
-### Cadastro de colaborador comissionado
-
-```java
-new ColaboradorComissionado(
-    2,
-    "Maria",
-    2500.00,
-    10000.00,
-    5.0
-);
-```
-
-### Cadastro de colaborador de produção
-
-```java
-new ColaboradorProducao(
-    3,
-    "Carlos",
-    2200.00,
-    500,
-    2.50
-);
-```
-
----
-
-## Compilação
-
+Como rodar (Maven)
+------------------
+1. Build:
 ```bash
-javac *.java
+mvn clean package
 ```
 
-## Execução
-
+2. Rodar (jar gerado):
 ```bash
-java Principal
+java -jar target/colaboradores-<versao>.jar
 ```
 
----
+Como rodar (Gradle)
+-------------------
+1. Build:
+```bash
+./gradlew clean build
+```
 
-## Conceitos Aplicados
+2. Rodar (jar gerado):
+```bash
+java -jar build/libs/colaboradores-<versao>.jar
+```
 
-✔ Classes e Objetos
+Configuração
+-----------
+- Arquivo de exemplo: `src/main/resources/application.properties` ou `application.yml`
+- Propriedades comuns:
+  - server.port=8080
+  - spring.datasource.url=jdbc:...
+  - spring.datasource.username=
+  - spring.datasource.password=
 
-✔ Herança
+Exemplos de uso (REST)
+----------------------
+- Listar colaboradores:
+  GET /api/colaboradores
 
-✔ Polimorfismo
+- Obter colaborador por id:
+  GET /api/colaboradores/{id}
 
-✔ Sobrescrita de Métodos
+- Criar colaborador:
+  POST /api/colaboradores
+  Body (JSON):
+  ```json
+  {
+    "nome": "João Silva",
+    "email": "joao@exemplo.com",
+    "cargo": "Desenvolvedor"
+  }
+  ```
 
-✔ Encapsulamento
+- Atualizar colaborador:
+  PUT /api/colaboradores/{id}
 
-✔ ArrayList
+- Deletar colaborador:
+  DELETE /api/colaboradores/{id}
 
-✔ Entrada de Dados com Scanner
+Estrutura do projeto
+--------------------
+- src/main/java
+  - com.seudominio.colaboradores
+    - model/        -> entidades e DTOs
+    - repository/   -> interfaces de persistência
+    - service/      -> lógica de negócio
+    - controller/   -> endpoints REST
+    - config/       -> configuração e beans
+- src/test/java  -> testes unitários e de integração
 
-✔ Estruturas de Repetição
+Testes
+------
+- Executar testes com Maven:
+```bash
+mvn test
+```
+- Executar testes com Gradle:
+```bash
+./gradlew test
+```
 
-✔ Estruturas de Decisão
+Boas práticas e contribuições
+----------------------------
+Contribuições são bem-vindas! Sugestões:
+1. Abra uma issue descrevendo o problema/feature.
+2. Crie uma branch com nome descritivo: `feature/minha-nova-funcionalidade` ou `fix/corrige-bug`.
+3. Faça commits pequenos e claros.
+4. Abra um Pull Request referenciando a issue e descrevendo as mudanças.
+5. Inclua testes para novas funcionalidades e garanta que o build esteja verde.
 
-✔ Validação de Dados
+Modelo de commit
+- feat: adicionar endpoint de busca por departamento
+- fix: corrigir validação de e-mail no service
+- docs: atualizar README com instruções de setup
 
----
+Licença
+-------
+Escolha a licença desejada (ex.: MIT, Apache-2.0). Atualmente este repositório está sem licença definida.
 
-## Objetivo Acadêmico
+Contato
+-------
+- Autor: pcfurlanetto
+- E-mail: (adicione aqui)
+- Twitter/GitHub: https://github.com/pcfurlanetto
 
-Este projeto foi desenvolvido para praticar conceitos.
+Próximos passos sugeridos
+-------------------------
+- Definir framework (por exemplo Spring Boot) e dependências no pom.xml / build.gradle
+- Adicionar um exemplo funcional com banco em memória (H2) e testes de integração
+- Escolher e adicionar licença
+- Adicionar badges reais de CI (GitHub Actions) e cobertura de testes
